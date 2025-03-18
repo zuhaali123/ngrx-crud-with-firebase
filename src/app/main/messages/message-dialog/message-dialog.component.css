@@ -1,0 +1,36 @@
+.dialog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-button {
+    margin-left: auto;
+}
+
+.dialog-content {
+    padding: 16px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    width: 100%;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+.message-field {
+    margin-bottom: 24px;
+}
+
+.dialog-actions {
+    margin-top: 16px;
+}
+
+.cancel-btn {
+    margin-right: 8px;
+}

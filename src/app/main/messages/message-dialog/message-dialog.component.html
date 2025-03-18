@@ -1,0 +1,36 @@
+<h2 mat-dialog-title class="dialog-title">
+  {{ isEditMode ? 'Edit Message' : 'Send Message' }}
+  <button mat-icon-button (click)="onClose()" class="close-button" aria-label="Close dialog">
+    <mat-icon>close</mat-icon>
+  </button>
+</h2>
+
+<mat-dialog-content class="dialog-content">
+  <form [formGroup]="messageForm" class="form-container">
+
+    <mat-form-field appearance="outline" class="input-field">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" required>
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="messageForm.get('email')?.touched && messageForm.get('email')?.invalid">
+        Valid Email required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input-field message-field" floatLabel="always">
+      <mat-label>Message</mat-label>
+      <textarea matInput formControlName="message" rows="4" required></textarea>
+      <mat-error *ngIf="messageForm.get('message')?.touched && messageForm.get('message')?.invalid">
+        Message is required
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="dialog-actions">
+  <button mat-button (click)="onClose()" class="cancel-btn">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="messageForm.invalid" class="submit-btn">
+    {{ isEditMode ? 'Update' : 'Submit' }}
+  </button>
+</mat-dialog-actions>
